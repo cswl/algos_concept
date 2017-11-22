@@ -1,0 +1,33 @@
+{
+  "name": "fcc-algorithm-challenges-cli",
+  "version": "0.0.1",
+  "description":
+    "Save, and test algorithm challenges from commandline.",
+  "main": "loader.js",
+  "module": "src/main.mjs",
+  "repository": "git@github.com:cswl/fcc-algorithm-cli-challenges.git",
+  "author": "Cswl Coldwind <cswl1337@gmail.com>",
+  "license": "ISC",
+  "bin": {
+    "fccalg": "./loader.js"
+  },
+  "dependencies": {
+    "@std/esm": "^0.17.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-prettier": "^2.8.0",
+    "eslint-config-unobtrusive": "^1.1.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^5.0.0",
+    "prettier": "^1.8.2"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint": "eslint src/**; exit 0"
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "git add"]
+  }
+}
