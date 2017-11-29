@@ -8,14 +8,18 @@ import { ERROR_CODES } from "./libs/error_codes.mjs";
 
 const mkdir = util.promisify(fs.mkdir);
 
-export async function bootStrapfiles(cwd, fccDir) {
-  const chllg_paths = {
+export const getChllgPaths = cwd => {
+  const c = {
     root: path.resolve(cwd, "challenges")
   };
-  chllg_paths.basic = path.resolve(chllg_paths.root, "basic");
-  chllg_paths.inter = path.resolve(chllg_paths.root, "inter");
-  chllg_paths.advnc = path.resolve(chllg_paths.root, "advnc");
+  c.basic = path.resolve(c.root, "basic");
+  c.inter = path.resolve(c.root, "inter");
+  c.advnc = path.resolve(c.root, "advnc");
+  return c;
+};
 
+export async function bootStrapfiles(cwd, fccDir) {
+  const chllg_paths = getChllgPaths(cwd);
   try {
     await mkdir(chllg_paths.root);
   } catch (err) {

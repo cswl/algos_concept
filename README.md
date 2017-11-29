@@ -22,8 +22,18 @@ Then run
 `npx falgoc bootstrap`  
 which creates empty files for alogrithm challenges.
 
-Now you can copy the challenges in the files then commit them.
-
 NOTE: If you dont have `npx` you might need to update your `npm` to latest version too.
+
+## Extracting challenges from freeCodeCamp.
+
+Go to https://www.freecodecamp.org/*your-username* 
+
+Copy the table data from tbody and save to 'dump_table.html"  
+Next run.
+`npx falgoc extract`
+
+Now the challenges in the files will be copied and then commit them.
+
+
 
 

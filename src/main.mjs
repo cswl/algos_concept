@@ -3,7 +3,7 @@ import { bootStrapfiles } from "./bootstrap.mjs";
 import initRepo from "./init_repo.mjs";
 
 const cwd = process.cwd();
-export const fccDir = path.resolve(cwd, "freeCodeCamp");
+const fccDir = path.resolve(cwd, "freeCodeCamp");
 
 async function main([op]) {
   if (op === "init") {
