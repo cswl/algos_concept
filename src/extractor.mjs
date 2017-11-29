@@ -5,18 +5,15 @@ import querystring from "querystring";
 import path from "path";
 import jsdom from "jsdom";
 
-import { normalizeChFilename } from "./src/helper.mjs";
-import { getAlgoFromJSON } from "./src/helper.mjs";
-import { getChllgPaths } from "./src/bootstrap.mjs";
+import { normalizeChFilename } from "helper.mjs";
+import { getAlgoFromJSON } from "helper.mjs";
+import { getChllgPaths } from "bootstrap.mjs";
 
 const { JSDOM } = jsdom;
 const writeFile = util.promisify(fs.writeFile);
 const readFile = util.promisify(fs.readFile);
 
-const cwd = process.cwd();
-const fccDir = path.resolve(cwd, "freeCodeCamp");
-
-async function main() {
+export default async function main(cwd, fccDir) {
   const fData = await readFile(path.resolve(cwd, "dump_table.html"), "utf-8");
   const dom = new JSDOM(fData);
   const { document } = dom.window;
@@ -80,5 +77,3 @@ async function main() {
     }
   }
 }
-
-main();
