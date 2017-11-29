@@ -30,3 +30,16 @@ export const setupAlgoFiles = (cpath, titles) => {
     );
   });
 };
+
+export const filesArr = (cpath, titles) => {
+  return titles.map((ch, idx) => {
+    const fobj = {};
+    return [
+      normalizeChFilename(ch.title),
+      {
+        path: cpath,
+        filename: normalizeChFilename(`${idx + 1}_${ch.title}`)
+      }
+    ];
+  });
+};

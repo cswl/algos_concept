@@ -5,7 +5,7 @@ import querystring from "querystring";
 import path from "path";
 import jsdom from "jsdom";
 
-import { normalizeChFilename } from "helper.mjs";
+import { normalizeChFilename, filesArr } from "helper.mjs";
 import { getAlgoFromJSON } from "helper.mjs";
 import { getChllgPaths } from "bootstrap.mjs";
 
@@ -30,19 +30,6 @@ export default async function main(cwd, fccDir) {
     return [chlg, solution];
   });
   const chllgs = await getAlgoFromJSON(fccDir);
-
-  const filesArr = (cpath, titles) => {
-    return titles.map((ch, idx) => {
-      const fobj = {};
-      return [
-        normalizeChFilename(ch.title),
-        {
-          path: cpath,
-          filename: normalizeChFilename(`${idx + 1}_${ch.title}`)
-        }
-      ];
-    });
-  };
   const chllg_paths = getChllgPaths(cwd);
   const files = [
     ...filesArr(

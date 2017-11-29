@@ -25,10 +25,10 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "lint": "eslint src/**; exit 0"
+    "lint": "eslint src/**/*.mjs; exit 0"
   },
   "lint-staged": {
-    "*.js": [
+    "src/**/*.mjs": [
       "eslint --fix",
       "git add"
     ]
