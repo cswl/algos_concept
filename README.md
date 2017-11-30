@@ -14,12 +14,12 @@ Next run
 Which clones the fcc project to `freeCodeCamp`
 
 Now run
-`npx falgoc init`  
+`npx fccalg init`  
 Which calls `git init` and creates a `.gitignore` to  
 create your repo and setup initial commit.
 
 Then run  
-`npx falgoc bootstrap`  
+`npx fccalg bootstrap`  
 which creates empty files for alogrithm challenges.
 
 NOTE: If you dont have `npx` you might need to update your `npm` to latest version too.
@@ -30,7 +30,7 @@ Go to https://www.freecodecamp.org/*your-username*
 
 Copy the table data from tbody and save to 'dump_table.html"  
 Next run.
-`npx falgoc extract`
+`npx fccalg extract`
 
 Now the challenges in the files will be copied and then commit them.
 
