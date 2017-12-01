@@ -1,13 +1,12 @@
 import util from "util";
 import fs from "fs";
-import url from "url";
 import querystring from "querystring";
 import path from "path";
 import jsdom from "jsdom";
 
-import { normalizeChFilename, filesArr } from "helper.mjs";
-import { getAlgoFromJSON } from "helper.mjs";
-import { getChllgPaths } from "bootstrap.mjs";
+import { normalizeChFilename, filesArr } from "./helper.mjs";
+import { getAlgoFromJSON } from "./helper.mjs";
+import { getChllgPaths } from "./bootstrap.mjs";
 
 const { JSDOM } = jsdom;
 const writeFile = util.promisify(fs.writeFile);
