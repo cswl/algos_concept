@@ -23,14 +23,32 @@
  */
 
 import java.util.HashSet;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
-public class WordPremutations {
 
-    public static void main(String[] args) {
-        HashSet<String> dicList = WordPremutationsDicLoader.load(args);
-        if ( dicList == null ) return;
+public class WordPremutationsDicLoader  {
 
-        WordPremutationsREPL.start(dicList);        
+  static HashSet<String> load(String[] args) {
+    if (args.length == 0) {
+        System.out.print("FATAL: Dictionary file not specified");
+        return null;
     }
+    String fpath = args[0];
 
+    // try open dictionary file
+    HashSet<String> list;
+    try (Scanner s = new Scanner(new File(fpath))) {
+        s.useDelimiter(System.lineSeparator());
+        list = new HashSet<String>(68700);
+        while (s.hasNext()) {
+            list.add(s.next().toLowerCase());
+        }
+        return list;
+    } catch (FileNotFoundException e) {
+        System.out.println("FATAL: Dictionary file not found");
+        return null;
+    }
+}
 }
