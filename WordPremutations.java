@@ -68,7 +68,7 @@ public class WordPremutations {
             @Override
             public int compare(String lhs, String rhs) {
                 // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
-                if(lhs.length() == rhs.length()) return 1 ;
+                if(lhs.length() == rhs.length()) return 0 ;
                 return (lhs.length() < rhs.length()) ? -1 : 1;
             }
         });
